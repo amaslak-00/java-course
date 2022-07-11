@@ -1,3 +1,5 @@
+package part1;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,9 +11,9 @@ public class PartTime implements Student{
 
 
     public PartTime(String name,String surname,int index ){
-        name = name;
-        surname = surname;
-        index = index;
+        this.name = name;
+        this.surname = surname;
+        this.index = index;
     }
 
     public String getName() {
@@ -51,8 +53,8 @@ public class PartTime implements Student{
         if(roomNumber.equals("C124")){
             if(hour>=9 && hour<=13){
                 System.out.println("-------------------------------------------------------");
-                System.out.println("First Name      |    " );
-                System.out.println("Second Name     |    " );
+                System.out.println("First Name      |    " + this.getName());
+                System.out.println("Second Name     |    " + this.getSurname());
                 System.out.println();
                 System.out.println("Raport generated on " + sdf1.format(nowDate));
                 System.out.println("Room number: C124");
@@ -66,8 +68,8 @@ public class PartTime implements Student{
         if(roomNumber.equals("D124")){
             if(hour>=17 && hour<=20){
                 System.out.println("-------------------------------------------------------");
-                System.out.println("First Name      |    " );
-                System.out.println("Second Name     |    " );
+                System.out.println("First Name      |    " + this.getName());
+                System.out.println("Second Name     |    " + this.getSurname());
                 System.out.println();
                 System.out.println("Raport generated on " + sdf1.format(nowDate));
                 System.out.println("Room number: D124");
