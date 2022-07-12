@@ -1,6 +1,6 @@
 package part12;
 
-import part1.Student;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +10,7 @@ public class PartTime  {
 
     private String name;
     private String surname;
-    private int index;
+
 
 
     public PartTime(String name, String surname ){
@@ -56,12 +56,7 @@ public class PartTime  {
 
 
         if(roomNumber.equals("A123") || roomNumber.equals("B123")){
-            try{
-
-            }
-            catch (Exception e){
-                System.out.println("Wrong room");
-            }
+            System.out.println("Wrong number");
         }
 
         if(roomNumber.equals("C124")){

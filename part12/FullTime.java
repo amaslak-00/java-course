@@ -1,6 +1,6 @@
 package part12;
 import java.util.Scanner;
-import part1.Student;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
