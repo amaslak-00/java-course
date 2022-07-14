@@ -4,7 +4,7 @@ package part3;
 import java.util.LinkedList;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws myExceptions {
 
         LinkedList<PartTime> partTimes = new LinkedList<PartTime>();
         LinkedList<FullTime> fullTimes = new LinkedList<FullTime>();

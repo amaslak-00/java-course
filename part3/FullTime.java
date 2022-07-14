@@ -10,7 +10,7 @@ public class FullTime extends Student{
         super(name, surname);
     }
 
-    public void serve(){
+    public void serve() throws myExceptions {
         Date nowDate = new Date();
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
@@ -23,28 +23,35 @@ public class FullTime extends Student{
         int index = scan.nextInt();
 
 
-        if(roomNumber.equals("C124") || roomNumber.equals("D124")){
-            System.out.println("Wrong room");
-        }
+     checkHour(hour,
+             roomNumber,
+             index);
+    }
+
+    public void checkHour(int hour, String roomNumber, int index) throws myExceptions{
 
         if(roomNumber.equals("A123")){
-            if(hour>=8 && hour<=16){
-                displayFormat(index, roomNumber);
+            if(hour<=8 || hour>=16){
+                throw new myExceptions("Bad hour");
             }
             else{
-                System.out.println("Bad hour");
+                displayFormat(index, roomNumber);
             }
         }
 
         if(roomNumber.equals("B123")){
-            if(hour>=9 && hour<=17){
-           displayFormat(index, roomNumber);
+            if(hour<=9 || hour>=17){
+                throw new myExceptions("Bad hour");
             }
             else{
-                System.out.println("Bad hour");
+                displayFormat(index, roomNumber);
             }
-
         }
+        else {
+            throw new myExceptions("Wrong room");
+        }
+
+
     }
 
 

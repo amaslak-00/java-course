@@ -7,7 +7,7 @@ public class PartTime extends Student{
         super(name, surname);
     }
 
-    public void serve(){
+    public void serve() throws myExceptions {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the room number: ");
         String roomNumber = scan.nextLine();
@@ -17,26 +17,33 @@ public class PartTime extends Student{
         int index = scan.nextInt();
 
 
-        if(roomNumber.equals("A123") || roomNumber.equals("B123")){
-            System.out.println("Wrong number");
+        checkHour(hour, roomNumber, index);
+    }
+
+    public void checkHour(int hour, String roomNumber, int index) throws myExceptions{
+
+        if(roomNumber.equals("D124")){
+            if(hour<=17 ||hour>=20){
+                throw new myExceptions("Bad hour");
+            }
+            else{
+                displayFormat(index, roomNumber);
+            }
         }
 
         if(roomNumber.equals("C124")){
-            if(hour>=9 && hour<=13){
-                displayFormat(index, roomNumber);
+            if(hour<=9 ||hour>=13){
+                throw new myExceptions("Bad hour");
             }
             else{
-                System.out.println("Bad hour");
+                displayFormat(index, roomNumber);
             }
+        }
+        else {
+            throw new myExceptions("Wrong room");
         }
 
-        if(roomNumber.equals("D124")){
-            if(hour>=17 && hour<=20){
-                displayFormat(index, roomNumber);
-            }
-            else{
-                System.out.println("Bad hour");
-            }
-        }
+
     }
+
 }
