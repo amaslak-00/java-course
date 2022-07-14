@@ -7,6 +7,9 @@ public class PartTime extends Student{
         super(name, surname);
     }
 
+    //TODO As you mentioned when we talked -> there is a lot of code duplication here, it would be a better practice to keep the logic in one place
+    // and only call the proper method with the proper parameters
+
     public void serve() throws myExceptions {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the room number: ");
@@ -16,7 +19,7 @@ public class PartTime extends Student{
         System.out.println("Enter the student ID: ");
         int index = scan.nextInt();
 
-
+        //TODO useless new line
         checkHour(hour, roomNumber, index);
     }
 

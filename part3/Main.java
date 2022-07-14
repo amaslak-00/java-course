@@ -6,10 +6,10 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) throws myExceptions {
 
-        LinkedList<PartTime> partTimes = new LinkedList<PartTime>();
-        LinkedList<FullTime> fullTimes = new LinkedList<FullTime>();
+        LinkedList<PartTime> partTimes = new LinkedList<PartTime>(); //TODO if PartTime students and FullTime students both extend a Student class -> they can be kept in one List
+        LinkedList<FullTime> fullTimes = new LinkedList<FullTime>(); //TODO as IntelliJ shows you -> the <FullTime> is useless for the second time
 
-        PartTime Adam = new PartTime("Adam", "Kowalski");
+        PartTime Adam = new PartTime("Adam", "Kowalski"); //TODO even if we talk about names -> the objects names should be lowercase
         PartTime Grzegorz = new PartTime("Grzegorz", "Zbielen");
         PartTime Anna = new PartTime("Anna", "Forest");
 
