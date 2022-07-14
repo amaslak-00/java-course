@@ -1,27 +1,25 @@
 package part3;
 
-import part12.FullTime;
-import part12.PartTime;
 
 import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
 
-        LinkedList<part12.PartTime> partTimes = new LinkedList<PartTime>();
-        LinkedList<part12.FullTime> fullTimes = new LinkedList<FullTime>();
+        LinkedList<PartTime> partTimes = new LinkedList<PartTime>();
+        LinkedList<FullTime> fullTimes = new LinkedList<FullTime>();
 
-        part12.PartTime Adam = new part12.PartTime("Adam", "Kowalski");
-        part12.PartTime Grzegorz = new part12.PartTime("Grzegorz", "Zbielen");
-        part12.PartTime Anna = new PartTime("Anna", "Forest");
+        PartTime Adam = new PartTime("Adam", "Kowalski");
+        PartTime Grzegorz = new PartTime("Grzegorz", "Zbielen");
+        PartTime Anna = new PartTime("Anna", "Forest");
 
         partTimes.add(Adam);
         partTimes.add(Grzegorz);
         partTimes.add(Anna);
 
-        part12.FullTime Stefan = new part12.FullTime("Stefan", "Kolarz");
-        part12.FullTime Zosia = new part12.FullTime("Zosia", "Biel");
-        part12.FullTime Eustachy = new FullTime("Eustachy", "Maslak");
+        FullTime Stefan = new FullTime("Stefan", "Kolarz");
+        FullTime Zosia = new FullTime("Zosia", "Biel");
+        FullTime Eustachy = new FullTime("Eustachy", "Maslak");
 
         fullTimes.add(Stefan);
         fullTimes.add(Zosia);

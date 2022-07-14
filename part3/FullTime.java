@@ -43,6 +43,10 @@ public class FullTime extends Student{
             else{
                 System.out.println("Bad hour");
             }
+
         }
     }
+
+
+
 }
