@@ -23,10 +23,10 @@ public class FullTime extends Student{
         int index = scan.nextInt();
 
 
-     checkHour(hour,
-             roomNumber,
-             index);
-    }
+         checkHour(hour,
+                 roomNumber,
+                 index);
+        }
 
     public void checkHour(int hour, String roomNumber, int index) throws myExceptions{
 
