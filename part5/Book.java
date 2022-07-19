@@ -9,15 +9,24 @@ public class Book {
 
     private Shelf shelf;
 
-    public Book(String title, String author, String genre, String publisher, Shelf shelf) {
+    private int pages;
+
+    public Book(String title, String author, String genre, String publisher, Shelf shelf, int pages) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.publisher = publisher;
         this.shelf = shelf;
+        this.pages = pages;
     }
 
+    public int getPages() {
+        return pages;
+    }
 
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
 
     public String getTitle() {
         return title;

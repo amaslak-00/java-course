@@ -1,8 +1,11 @@
 package part5;
 
 import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,15 +16,15 @@ public class Main {
 
 
         List<Book> books_1 = Arrays.asList(
-                new Book("The Da Vinci Code", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf1),
-                new Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "Children's Fiction", "Bloomsbury", shelf1),
-                new Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "Children's Fiction", "Bloomsbury", shelf2),
-                new Book("Fifty Shades of Grey", "James, E. L.", "Romance & Sagas", "Random House", shelf3),
-                new Book("Angels and Demons", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf1),
-                new Book("Fifty Shades Darker", "James, E. L.", "Romance & Sagas", "Random House", shelf3),
-                new Book("Twilight", "Meyer, Stephenie", "Young Adult Fiction", "Little, Brown Book", shelf2),
-                new Book("New Moon", "Meyer, Stephenie", "Young Adult Fiction", "Little, Brown Book", shelf1),
-                new Book("Deception Point", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf2)
+                new Book("The Da Vinci Code", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf1, 120),
+                new Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "Children's Fiction", "Bloomsbury", shelf1,340),
+                new Book("Harry Potter and the Philosopher's Stone", "Rowling, J.K.", "Children's Fiction", "Bloomsbury", shelf2,453),
+                new Book("Fifty Shades of Grey", "James, E. L.", "Romance & Sagas", "Random House", shelf3,102),
+                new Book("Angels and Demons", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf1,405),
+                new Book("Fifty Shades Darker", "James, E. L.", "Romance & Sagas", "Random House", shelf3,234),
+                new Book("Twilight", "Meyer, Stephenie", "Young Adult Fiction", "Little, Brown Book", shelf1,876),
+                new Book("New Moon", "Meyer, Stephenie", "Young Adult Fiction", "Little, Brown Book", shelf1, 123),
+                new Book("Deception Point", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf2, 245)
 
         );
 
@@ -33,13 +36,33 @@ public class Main {
 
 
         books_1.stream()
-                .map(b -> String.valueOf(b.getShelf().getNumberOfShelf()))
+                .map(b -> b.getShelf().getNumberOfShelf())
                 .forEach(System.out::println);
 
 
+        int[] shelvesAmount = new int[3];
 
 
+        for(Book book : books_1){
+            if(book.getShelf().getNumberOfShelf() == 1){
+              shelvesAmount[0] = shelvesAmount[0] + 1;
+            }
+            if(book.getShelf().getNumberOfShelf() == 2){
+                shelvesAmount[1] = shelvesAmount[1] + 1;
+            }
+            if(book.getShelf().getNumberOfShelf() == 3){
+                shelvesAmount[2] = shelvesAmount[2] + 1;
+            }
+        }
 
+        System.out.println("Max amount of books on shelf: ");
+        System.out.println( Arrays.stream(shelvesAmount).max());
+
+
+        Map<String, Double> collect = books_1.stream()
+                .collect(Collectors.groupingBy(book -> book.getAuthor(),
+                        Collectors.averagingInt(book -> book.getPages())));
+        System.out.println(collect);
 
     }
 }
