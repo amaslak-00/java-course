@@ -44,15 +44,8 @@ public class Main {
 
 
         for(Book book : books_1){
-            if(book.getShelf().getNumberOfShelf() == 1){
-              shelvesAmount[0] = shelvesAmount[0] + 1;
-            }
-            if(book.getShelf().getNumberOfShelf() == 2){
-                shelvesAmount[1] = shelvesAmount[1] + 1;
-            }
-            if(book.getShelf().getNumberOfShelf() == 3){
-                shelvesAmount[2] = shelvesAmount[2] + 1;
-            }
+            
+            shelvesAmount[book.getShelf().getNumberOfShelf()-1] =  shelvesAmount[book.getShelf().getNumberOfShelf()-1]+1;
         }
 
         System.out.println("Max amount of books on shelf: ");
