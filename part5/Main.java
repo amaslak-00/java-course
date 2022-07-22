@@ -14,7 +14,7 @@ public class Main {
         Shelf shelf2 = new Shelf(false, "orange", 2);
         Shelf shelf3 = new Shelf(true, "yellow", 3);
 
-
+        //TODO avoid "_" in names - just books or books1 - camelcase
         List<Book> books_1 = Arrays.asList(
                 new Book("The Da Vinci Code", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf1, 120),
                 new Book("Harry Potter and the Deathly Hallows", "Rowling, J.K.", "Children's Fiction", "Bloomsbury", shelf1,340),
@@ -26,7 +26,7 @@ public class Main {
                 new Book("New Moon", "Meyer, Stephenie", "Young Adult Fiction", "Little, Brown Book", shelf1, 123),
                 new Book("Deception Point", "Brown, Dan", "Crime, Thriller & Adventure", "Transworld", shelf2, 245)
 
-        );
+        ); // TODO if you want to have a immutable list (the one that we cannot add objects to ) you can write List.of(.....and write new Book(), new Book))
 
 
         books_1.stream()
@@ -38,7 +38,18 @@ public class Main {
         books_1.stream()
                 .map(b -> b.getShelf().getNumberOfShelf())
                 .forEach(System.out::println);
+        
+        //TODO 
 
+        books_1.stream()
+                .map(b -> b.getShelf().getColor())
+                .forEach(System.out::println); //TODO this one will print all colors as a list - with duplications
+        
+        books_1.stream()
+                .map(b -> b.getShelf().getColor()).collect(Collectors.toSet())
+                .forEach(System.out::println); //TODO this one will print all colors as a set -> no duplicates
+        
+        
 
         int[] shelvesAmount = new int[3];
 
@@ -47,6 +58,8 @@ public class Main {
             
             shelvesAmount[book.getShelf().getNumberOfShelf()-1] =  shelvesAmount[book.getShelf().getNumberOfShelf()-1]+1;
         }
+        
+        
 
         System.out.println("Max amount of books on shelf: ");
         System.out.println( Arrays.stream(shelvesAmount).max());
