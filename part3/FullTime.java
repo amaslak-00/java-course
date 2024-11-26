@@ -16,6 +16,7 @@ public class FullTime extends Student{
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the room number: ");
+        System.out.println("test");
         String roomNumber = scan.nextLine();
         System.out.println("Enter the hour: ");
         int hour = scan.nextInt();
